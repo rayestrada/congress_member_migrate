@@ -1,0 +1,10 @@
+name: Congress Member Migrate
+type: module
+description: Custom Migrate of Congress Members using a CSV file
+core: 8.x
+package: Migration
+dependencies:
+    - migrate_source_csv
+    - migrate_plus
+    - migrate_tools
+    - legislationfield

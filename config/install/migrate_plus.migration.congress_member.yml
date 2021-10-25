@@ -1,0 +1,39 @@
+id: congress_member
+status: true
+label: Congress Member Migration
+dependencies:
+    enforced:
+        module:
+            - congress_member_migrate
+source:
+  plugin: csv
+  track_changes: true
+  path: modules/custom/congress_member_migrate/config/congress.csv
+  header_row_count: 1
+  keys:
+    - congress_id
+process:
+  type:
+    plugin: default_value
+    default_value: congress_member
+  title: title
+  field_cm_chamber: chamber
+  field_cm_congress_id: congress_id
+  field_cm_district: district
+  field_cm_facebook: facebook_url
+  field_cm_first_name: first_name
+  field_cm_last_name: last_name
+  field_cm_level: member_level
+  field_cm_party: party
+  field_cm_state: state
+  field_cm_letter_count: signed_letter_count
+  field_cm_twitter_handle: twitter_handle
+  field_cm_voted_count: voted_with_bma_count
+  field_cm_legislation:
+    plugin: legislation_field
+    source: legislation
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: entity:node

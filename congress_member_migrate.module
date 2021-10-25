@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains congress_member_migrate.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function congress_member_migrate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_user_migrate module.
+    case 'help.page.congress_member_migrate':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Congress Member Migrate') . '</p>';
+      return $output;
+
+  }
+}
